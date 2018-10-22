@@ -1,5 +1,9 @@
-<% @posts.each do |post| %>
+<div class="row">
+  <div class="col-xs-12">
+    <% @posts.each do |post| %>
 
-  <h2><%= link_to post.title, post_path(post.id)  %></h2>
+      <h2><%= link_to post.title, post_path(post.id)  %></h2>
 
-<% end %>
+    <% end %>
+  </div>
+</div>

@@ -50,11 +50,22 @@ group :development do
 end
 
 group :test do
-  # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '>= 2.15'
+  gem 'launchy'
+  gem 'minitest'
+  gem 'minitest-focus'
+  gem 'minitest-rails'
+  gem 'minitest-rails-capybara'
+  gem 'minitest-matchers'
+  gem 'minitest-metadata'
+  gem 'minitest-profiler'
+  gem 'capybara-email'
+  gem 'warden'
   gem 'selenium-webdriver'
-  # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
+  gem 'timecop'
+  gem 'action-cable-testing'
+  gem 'vcr'
+  gem 'webmock'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

@@ -14,7 +14,6 @@ class Admin::PostsController < Admin::AdminController
     if @post.save
       redirect_to admin_posts_path
     else
-      raise @post.errors.messages.inspect
       render template: '/admin/posts/new'
     end
   end
@@ -44,7 +43,8 @@ class Admin::PostsController < Admin::AdminController
     params.require(:post).permit(
       :title, 
       :content,
-      :category_id
+      :category_id,
+       {tag_ids: []} 
     ).merge(user_id: current_user.id)
   end
 end

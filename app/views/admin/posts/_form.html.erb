@@ -1,3 +1,13 @@
+<% if @post.errors.messages.any? %>
+  <ul>
+    <% @post.errors.messages.each do |key, errors| %>
+      <% errors.each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    <% end %>
+  </ul>
+<% end %>
+
 <label>Titre</label>
 <%= text_field_tag 'post[title]', @post.title, class: 'form-control' %>
 
@@ -11,6 +21,16 @@
   <% end %>
 </select>
 
+<br />
+<label>Tags</label>
+<ul>
+  <% Tag.all.each do |tag| %>
+    <li>
+      <%= check_box_tag 'post[tag_ids][]', tag.id, nil, checked: @post.tags.include?(tag) %>
+      <%= tag.name %>
+    </li>
+  <% end %>
+</ul>
 <br />
 <%= submit_tag "Save", class:"btn btn-primary" %>
 

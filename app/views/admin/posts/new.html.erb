@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-xs-12">
-    <%= form_tag admin_posts_path, method: :post, class: 'form' do %>
+    <%= form_tag admin_posts_path, method: :post, multipart: true, class: 'form' do %>
       <%= render partial: 'form' %>
     <% end %>
   </div>

@@ -23,11 +23,13 @@ class Admin::PostsController < Admin::AdminController
   end
 
   def update
-    post = Post.find(params[:id])
+    @post = Post.find(params[:id])
 
-    post.update_attributes(post_params)
-
-    redirect_to admin_posts_path
+    if @post.update_attributes(post_params)
+      redirect_to admin_posts_path
+    else
+      render template: '/admin/posts/edit'
+    end
   end
 
   def destroy
@@ -44,6 +46,7 @@ class Admin::PostsController < Admin::AdminController
       :title, 
       :content,
       :category_id,
+      :picture,
        {tag_ids: []} 
     ).merge(user_id: current_user.id)
   end

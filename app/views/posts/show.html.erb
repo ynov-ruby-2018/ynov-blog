@@ -1,5 +1,6 @@
 <h2><%= @post.title %></h2>
 
 <i>Ecrit par: <%= @post.user.name %></i>
-    
+<br />
+<b>Le: <%= l(@post.created_at, format: :default) %></b> 
 <p><%= @post.content %></p>

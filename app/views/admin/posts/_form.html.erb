@@ -8,13 +8,13 @@
   </ul>
 <% end %>
 
-<label>Titre</label>
+<label><%= t('title') %></label>
 <%= text_field_tag 'post[title]', @post.title, class: 'form-control' %>
 
-<label>Contenu</label>
+<label><%= t('content') %></label>
 <%= text_area_tag 'post[content]', @post.content, class: 'form-control' %>
 
-<label>Catégorie</label>
+<label><%= t('category') %></label>
 <select name="post[category_id]" class="form-control">
   <% Category.all.each do |category| %>
     <option value="<%= category.id %>"><%= category.name %></option>
@@ -22,7 +22,7 @@
 </select>
 
 <br />
-<label>Tags</label>
+<label><%= t('tags') %></label>
 <ul>
   <% Tag.all.each do |tag| %>
     <li>
@@ -32,7 +32,7 @@
   <% end %>
 </ul>
 <br />
-<label>Image</label>
+<label><%= t('image') %></label>
 <%= file_field_tag 'post[picture]', class: 'form-control' %>
 <br />
 <%= submit_tag "Save", class:"btn btn-primary" %>

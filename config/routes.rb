@@ -1,11 +1,15 @@
 Rails.application.routes.draw do
-  devise_for :users
 
-  root to: 'posts#index' 
-  resources :posts
+  localized do
+    devise_for :users
 
-  namespace :admin do
-    root to: 'dashboard#index'
+    root to: 'posts#index' 
     resources :posts
+
+    namespace :admin do
+      root to: 'dashboard#index'
+      resources :posts
+    end
   end
+
 end

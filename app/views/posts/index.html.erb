@@ -1,4 +1,11 @@
 <div class="row">
+  <%= form_tag root_path, method: :get do %>
+    <%= text_field_tag 'query', nil, class: 'form-control' %>
+    <%= submit_tag t('homepage.search'), class: 'btn btn-primary' %>
+  <% end %>
+</div>
+
+<div class="row">
   <div class="col-xs-12">
     <% @posts.each do |post| %>
       <h2><%= link_to post.title, post_path(post.id)  %></h2>

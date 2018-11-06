@@ -1,8 +1,16 @@
 <div class="row">
-  <%= form_tag root_path, method: :get do %>
-    <%= text_field_tag 'query', nil, class: 'form-control' %>
-    <%= submit_tag t('homepage.search'), class: 'btn btn-primary' %>
-  <% end %>
+  <div class="col-xs-9">
+    <%= form_tag root_path, method: :get do %>
+      <%= text_field_tag 'query', nil, class: 'form-control' %>
+      <%= submit_tag t('homepage.search'), class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+  <div class="col-xs-3">
+    <select data-do="select_currency" class="form-control">>
+      <option value="eur" <%= "selected" if session[:currency] == 'eur' %>>EURO</option>
+      <option value="usd" <%= "selected" if session[:currency] == 'usd' %>>DOLLAR</option>
+    </select>
+  </div>
 </div>
 
 <div class="row">
@@ -13,3 +21,5 @@
     <% end %>
   </div>
 </div>
+
+

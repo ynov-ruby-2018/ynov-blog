@@ -7,7 +7,7 @@ class Search
   def perform
     if @query != ''
       out = Post.joins(:user)
-                   .where(['users.name LIKE ? OR posts.title LIKE ?',
+                .where(['users.name LIKE ? OR posts.title LIKE ?',
                       "%#{@query}%", "%#{@query}%"
                     ])
     else

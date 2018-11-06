@@ -5,7 +5,8 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
+    post = Post.find(params[:id])
+    @post = PostDecorator.new(post).to_post
   end
 
 end

@@ -1,6 +1,8 @@
-<h2><%= @post.title %></h2>
+<h2><%= @post[:title] %></h2>
 
-<i>Ecrit par: <%= @post.user.name %></i>
+<%= image_tag @post[:image_url], width: '100px' %>
+
+<i>Ecrit par: <%= @post[:user_name] %></i>
 <br />
-<b>Le: <%= l(@post.created_at, format: :default) %></b> 
-<p><%= @post.content %></p>
+<b>Le: <%= @post[:created_at] %></b> 
+<p><%= @post[:content] %></p>
